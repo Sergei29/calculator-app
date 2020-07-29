@@ -11,4 +11,7 @@ describe("Calculator", () => {
 	it("should render the component", () => {
 		expect(wrapper.length).toEqual(1);
 	});
+	it("should match the snapshot", () => {
+		expect(wrapper).toMatchSnapshot();
+	});
 });
