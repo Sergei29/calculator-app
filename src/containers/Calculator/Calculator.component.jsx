@@ -1,11 +1,11 @@
 import React, { createContext } from "react";
-import { AppContainer } from "./CalculatorApp.styles";
+import { AppContainer } from "./Calculator.styles";
 
 function App() {
-	//create context provider hoc
+	//create context provider hoc -CalculatorProvider
 	return (
 		<AppContainer>
-			{/* provider hoc */}
+			{/* CalculatorProvider hoc */}
 			{/* child comps */}
 		</AppContainer>
 	);
