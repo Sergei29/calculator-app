@@ -5,7 +5,6 @@ import { DisplayContainer } from "./Display.styles";
 
 const Display = () => {
 	const { state } = useContext(store);
-	console.log("Display component state :>> ", state);
 	const { currentNumber, operation, accumulator, total, expression } = state;
 
 	return (
