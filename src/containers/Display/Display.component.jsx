@@ -1,15 +1,13 @@
 // useContext : get context.state -> display values
-import React from "react";
+import React, { useContext } from "react";
+import { store } from "../../context/store";
 import { DisplayContainer } from "./Display.styles";
 
 const Display = () => {
-	const [expression, total, operation, accumulator, currentNumber] = [
-		["1", "+", "2"],
-		null,
-		"+",
-		"3",
-		"2",
-	]; //stub data
+	const { state } = useContext(store);
+	console.log("Display component state :>> ", state);
+	const { currentNumber, operation, accumulator, total, expression } = state;
+
 	return (
 		<DisplayContainer>
 			<span>Expression: {expression.join("")}</span>

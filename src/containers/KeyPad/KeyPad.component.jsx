@@ -1,7 +1,8 @@
-// useContext : get dispatch
-// get actions
 // input handler : dispatch actions based on input value
-import React from "react";
+import React, { useContext } from "react";
+import { store } from "../../context/store";
+//actions:
+import * as actions from "../../context/actions";
 
 //components:
 import Button from "../../components/Button/Button.component";
@@ -9,12 +10,34 @@ import { KeyPadContainer } from "./KeyPad.styles";
 import { KEYS } from "../../data/data";
 
 const KeyPad = () => {
-	// get context => dispatch fn
-	const inputHandler = (event) => {
-		// will need switch with all clicked value cases:
+	const { dispatch } = useContext(store);
 
+	const inputHandler = (event) => {
 		const { name } = event.target;
-		console.log("clicked: ", name);
+		const isNumeric = !isNaN(+name) ? true : false;
+
+		switch (name) {
+			case "CE":
+				dispatch(actions.backspace());
+				return;
+			case "=":
+				dispatch(actions.setTotal());
+				return;
+			case "C":
+				dispatch(actions.reset());
+				return;
+			default:
+				// set state based on if numeric or binary math symbol
+				// !!! here make sense to change logic to update state only once
+				if (isNumeric) {
+					dispatch(actions.setCurrentNumber(+name));
+				} else {
+					dispatch(actions.setCurrentOperation(name));
+				}
+				dispatch(actions.updateExpression(name));
+				dispatch(actions.setAccumulator());
+				return;
+		}
 	};
 
 	return (
