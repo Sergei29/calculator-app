@@ -1,14 +1,17 @@
 import { shallow } from "enzyme";
 import React from "react";
 
-import CalculatorApp from "./CalculatorApp.component";
+import Calculator from "./Calculator.component";
 
-describe("CalculatorApp", () => {
+describe("Calculator", () => {
 	let wrapper;
 	beforeEach(() => {
-		wrapper = shallow(<CalculatorApp />);
+		wrapper = shallow(<Calculator />);
 	});
 	it("should render the component", () => {
 		expect(wrapper.length).toEqual(1);
+	});
+	it("should match the snapshot", () => {
+		expect(wrapper).toMatchSnapshot();
 	});
 });
