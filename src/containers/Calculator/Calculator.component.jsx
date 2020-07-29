@@ -1,14 +1,20 @@
 import React, { createContext } from "react";
+
+//components:
+import Display from "../Display/Display.component";
+import KeyPad from "../KeyPad/KeyPad.component";
 import { AppContainer } from "./Calculator.styles";
 
-function App() {
+function Calculator() {
 	//create context provider hoc -CalculatorProvider
 	return (
 		<AppContainer>
 			{/* CalculatorProvider hoc */}
-			{/* child comps */}
+
+			<Display />
+			<KeyPad />
 		</AppContainer>
 	);
 }
 
-export default App;
+export default Calculator;
