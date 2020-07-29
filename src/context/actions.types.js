@@ -1,0 +1,1 @@
+// actions types const = strings
