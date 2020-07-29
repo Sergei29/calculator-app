@@ -1,3 +1,33 @@
+## To start:
+
+1. You will need Node.js and git installed
+
+2. CLI:
+
+-   git clone https://github.com/sergejs-basangovs-ingresso/calculator-app.git
+-   cd calculator-app
+-   npm i
+
+## The Calculator React Application:
+
+-   created with create-react-app
+-   basic styling accomplished with css-in-js `styled-components` library
+-   Global state managed on client side accomplished by using Context API/hooks
+-   Flux architectural pattern used for data flow: Component->Action->Reducer->Store->Component
+-   Directories:
+    -   /components: re-usable components (eg. Button)
+    -   /containers: Calculator, Display, KeyPad
+        -   /Calculator: Application container, applying context provider HOC for children components
+        -   /Display: Displaying calculation output, connected to store (state)/ useContext hook
+        -   /KeyPad: Calculation input, connected to store (dispatching actions )/ useContext hook
+    -   /context: store, store provider HOC, reducer, action types and actions
+        -   store: store initialized with createContext, store provider - CalculatorStoreProvider HOC
+        -   calculatorReducer: reducer pure function returning new state based on fired actions
+        -   actions.types: types of actions required for app to calculate
+        -   actions: actions creator functions returning actions objects
+        -   utils: utility functions (eq. calculate an arithmetical expression)
+    -   /data: calculator buttons values
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
