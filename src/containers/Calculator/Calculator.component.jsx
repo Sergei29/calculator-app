@@ -1,18 +1,19 @@
-import React, { createContext } from "react";
+import React from "react";
 
+// store provider:
+import { CalculatorStoreProvider } from "../../context/store";
 //components:
 import Display from "../Display/Display.component";
 import KeyPad from "../KeyPad/KeyPad.component";
 import { AppContainer } from "./Calculator.styles";
 
 function Calculator() {
-	//create context provider hoc -CalculatorProvider
 	return (
 		<AppContainer>
-			{/* CalculatorProvider hoc */}
-
-			<Display />
-			<KeyPad />
+			<CalculatorStoreProvider>
+				<Display />
+				<KeyPad />
+			</CalculatorStoreProvider>
 		</AppContainer>
 	);
 }
