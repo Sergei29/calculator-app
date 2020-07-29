@@ -1,4 +1,4 @@
-import actionsTypes from "./action.types";
+import actionsTypes from "./actions.types";
 
 export const reset = () => ({
 	type: actionsTypes.RESET,
